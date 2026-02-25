@@ -58,8 +58,8 @@ const Footer = () => {
                 href="https://instagram.com/m2sdesign"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
-                @m2sde.sign
+                className="flex items-center gap-3 text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">n
+@m2sde.sign
                 <Instagram className="h-4 w-4" />
                 @m2sdesign
               </a>
