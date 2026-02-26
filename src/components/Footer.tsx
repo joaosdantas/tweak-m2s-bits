@@ -55,10 +55,10 @@ const Footer = () => {
                 WhatsApp
               </a>
               <a
-                href="https://instagram.com/m2sdesign"
+
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+                className="flex items-center gap-3 text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors" href="https://instagram.com/m2sde.sign">
                 <Instagram className="h-4 w-4" />
                 @m2sdesign
               </a>
