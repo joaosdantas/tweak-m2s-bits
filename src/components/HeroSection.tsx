@@ -21,9 +21,6 @@ const HeroSection = () => {
             Consultoria para obras e reformas com orientação técnica e atendimento humanizado.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" variant="accent" asChild>
-              <a href="#contato">Solicitar atendimento</a>
-            </Button>
             <Button size="lg" variant="outline-hero" asChild>
               <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2 h-5 w-5" />
