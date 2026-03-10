@@ -12,9 +12,6 @@ const CTASection = () => {
             Quer segurança nas escolhas do seu projeto? Fale com a M²S Design. Transforme sua obra em um processo organizado e seguro.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button size="lg" asChild>
-              <a href="mailto:contato@m2sdesign.com.br">Agendar consultoria</a>
-            </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2 h-5 w-5" />
