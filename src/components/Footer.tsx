@@ -46,7 +46,7 @@ const Footer = () => {
                 contato@m2sdesign.com.br
               </a>
               <a
-                href="https://wa.me/5500000000000"
+                href="https://api.whatsapp.com/send?phone=5513981172767&text=Ol%C3%A1%2C%20acessei%20o%20site%20e%20gostaria%20de%20conhecer%20melhor%20os%20seus%20servi%C3%A7os!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">

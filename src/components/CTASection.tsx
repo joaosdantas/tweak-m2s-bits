@@ -13,7 +13,7 @@ const CTASection = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button size="lg" variant="outline" asChild>
-              <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer">
+              <a href="https://api.whatsapp.com/send?phone=5513981172767&text=Ol%C3%A1%2C%20acessei%20o%20site%20e%20gostaria%20de%20conhecer%20melhor%20os%20seus%20servi%C3%A7os!" target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Conversar no WhatsApp
               </a>
