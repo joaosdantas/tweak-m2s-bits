@@ -63,10 +63,10 @@ const Footer = () => {
 @m2sde.sign
               </a>
               <a
-                href="https://youtube.com/@m2sdesign"
+
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
+                className="flex items-center gap-3 text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors" href="https://www.youtube.com/@joseantoniomartinezrodrigu6432">
 
                 <Youtube className="h-4 w-4" />
                 YouTube
