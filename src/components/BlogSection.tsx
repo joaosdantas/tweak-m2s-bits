@@ -1,27 +1,36 @@
+import { useEffect, useState } from "react";
+import { supabase } from "../lib/supabaseClient"; // AJUSTA SE PRECISAR
 import { ArrowRight } from "lucide-react";
 
-const blogPosts = [
-  {
-    title: "5 erros comuns na escolha de revestimentos",
-    excerpt: "Descubra os equívocos mais frequentes e como evitá-los para garantir durabilidade e estética no seu projeto.",
-    date: "20 Fev 2026",
-    category: "Materiais",
-  },
-  {
-    title: "Como planejar uma reforma sem surpresas",
-    excerpt: "Um guia prático para organizar cronograma, orçamento e expectativas antes de começar sua obra.",
-    date: "15 Fev 2026",
-    category: "Planejamento",
-  },
-  {
-    title: "A importância da consultoria em obras residenciais",
-    excerpt: "Entenda como a orientação profissional pode economizar tempo, dinheiro e evitar retrabalho.",
-    date: "08 Fev 2026",
-    category: "Consultoria",
-  },
-];
-
 const BlogSection = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchPosts() {
+      try {
+        const { data, error } = await supabase
+          .from("Linkedin_posts")
+          .select("*")
+          .order("created_at", { ascending: false });
+
+        if (error) {
+          console.error("Erro Supabase:", error);
+          setPosts([]);
+        } else {
+          setPosts(data || []);
+        }
+      } catch (err) {
+        console.error("Erro geral:", err);
+        setPosts([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchPosts();
+  }, []);
+
   return (
     <section id="blog" className="py-20 md:py-28 bg-background">
       <div className="container">
@@ -37,25 +46,58 @@ const BlogSection = () => {
           </p>
         </div>
 
+        {/* LOADING */}
+        {loading && (
+          <p className="text-center text-muted-foreground">
+            Carregando posts...
+          </p>
+        )}
+
+        {/* SEM POSTS */}
+        {!loading && posts.length === 0 && (
+          <p className="text-center text-muted-foreground">
+            Nenhum post encontrado.
+          </p>
+        )}
+
+        {/* POSTS */}
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {blogPosts.map((post) => (
+          {posts?.map((post) => (
             <article
-              key={post.title}
+              key={post.id}
+              onClick={() => post.post_url && window.open(post.post_url, "_blank")}
               className="bg-card p-8 rounded-lg border border-border hover:border-gold/30 hover:shadow-lg transition-all group cursor-pointer"
             >
+              {/* IMAGEM */}
+              {post.image_url && (
+                <img
+                  src={post.image_url}
+                  alt={post.title || "Post"}
+                  className="w-full h-40 object-cover rounded mb-4"
+                />
+              )}
+
               <span className="text-xs font-medium text-gold uppercase tracking-wider">
-                {post.category}
+                LinkedIn
               </span>
+
               <h3 className="text-lg font-serif font-semibold mt-3 mb-3 text-foreground group-hover:text-primary transition-colors">
-                {post.title}
+                {post.title || "Sem título"}
               </h3>
+
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                {post.excerpt}
+                {post.content || ""}
               </p>
+
               <div className="flex items-center justify-between">
-                <span className="text-xs text-muted-foreground">{post.date}</span>
+                <span className="text-xs text-muted-foreground">
+                  {post.created_at
+                    ? new Date(post.created_at).toLocaleDateString("pt-BR")
+                    : ""}
+                </span>
+
                 <span className="flex items-center gap-1 text-sm font-medium text-primary group-hover:gap-2 transition-all">
-                  Ler mais <ArrowRight className="h-4 w-4" />
+                  Ver no LinkedIn <ArrowRight className="h-4 w-4" />
                 </span>
               </div>
             </article>
