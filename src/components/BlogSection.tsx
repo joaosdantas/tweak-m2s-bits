@@ -12,7 +12,7 @@ const BlogSection = () => {
         const { data, error } = await supabase
           .from("Linkedin_posts")
           .select("*")
-          .order("created_at", { ascending: false });
+          .order("created_at", { ascending: false })
           .limit(3)
 
         if (error) {
@@ -30,6 +30,8 @@ const BlogSection = () => {
     }
 
     fetchPosts();
+    console.log("DATA:", data);
+console.log("ERROR:", error);
   }, []);
 
   return (
