@@ -13,7 +13,7 @@ const BlogSection = () => {
           .from("Linkedin_posts")
           .select("*")
           .order("created_at", { ascending: false });
-          .limit(3);
+          .limit(3)
 
         if (error) {
           console.error("Erro Supabase:", error);
