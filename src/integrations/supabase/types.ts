@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      ebook_leads: {
+        Row: {
+          consentimento_lgpd: boolean
+          created_at: string
+          ebook_slug: string
+          ebook_titulo: string
+          email: string
+          id: string
+          nome: string
+          origem: string | null
+          whatsapp: string
+        }
+        Insert: {
+          consentimento_lgpd?: boolean
+          created_at?: string
+          ebook_slug: string
+          ebook_titulo: string
+          email: string
+          id?: string
+          nome: string
+          origem?: string | null
+          whatsapp: string
+        }
+        Update: {
+          consentimento_lgpd?: boolean
+          created_at?: string
+          ebook_slug?: string
+          ebook_titulo?: string
+          email?: string
+          id?: string
+          nome?: string
+          origem?: string | null
+          whatsapp?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
