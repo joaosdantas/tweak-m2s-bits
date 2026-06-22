@@ -6,6 +6,7 @@ import ProcessSection from "@/components/ProcessSection";
 import DifferentialsSection from "@/components/DifferentialsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import BlogSection from "@/components/BlogSection";
+import EbooksSection from "@/components/EbooksSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
@@ -20,6 +21,7 @@ const Index = () => {
       <DifferentialsSection />
       <TestimonialsSection />
       <BlogSection />
+      <EbooksSection />
       <CTASection />
       <Footer />
     </div>
@@ -27,3 +29,4 @@ const Index = () => {
 };
 
 export default Index;
+
