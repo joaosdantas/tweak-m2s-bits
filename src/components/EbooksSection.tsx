@@ -1,27 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-
-const ebooks = [
-  {
-    title: "Guia de Decisões para Reformas",
-    image: "/ebooks/ebook-01.jpg",
-    link: "#",
-  },
-  {
-    title: "Planejamento de Obras",
-    image: "/ebooks/ebook-02.jpg",
-    link: "#",
-  },
-  {
-    title: "Curadoria de Materiais",
-    image: "/ebooks/ebook-03.jpg",
-    link: "#",
-  },
-  {
-    title: "Orçamento sem Surpresas",
-    image: "/ebooks/ebook-04.jpg",
-    link: "#",
-  },
-];
+import { Link } from "react-router-dom";
+import { ebooks } from "@/data/ebooks";
 
 const EbooksSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -42,7 +21,6 @@ const EbooksSection = () => {
     );
 
     observer.observe(section);
-
     return () => observer.disconnect();
   }, []);
 
@@ -71,26 +49,20 @@ const EbooksSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {ebooks.map((ebook, index) => (
-            <a
-              key={ebook.title}
-              href={ebook.link}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              key={ebook.slug}
+              to={`/ebooks/${ebook.slug}`}
               className={`group block rounded-lg bg-card border border-border hover:border-gold/30 hover:shadow-lg transition-all duration-300 overflow-hidden cursor-pointer ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-6"
+                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
               }`}
-              style={{
-                transitionDelay: isVisible ? `${index * 100}ms` : "0ms",
-              }}
-              aria-label={`Baixar ${ebook.title}`}
+              style={{ transitionDelay: isVisible ? `${index * 100}ms` : "0ms" }}
+              aria-label={`Acessar e-book ${ebook.titulo}`}
             >
               <article className="h-full">
                 <div className="overflow-hidden">
                   <img
-                    src={ebook.image}
-                    alt={`Capa do e-book ${ebook.title}`}
+                    src={ebook.imagem}
+                    alt={`Capa do e-book ${ebook.titulo}`}
                     loading="lazy"
                     width={768}
                     height={1152}
@@ -98,7 +70,7 @@ const EbooksSection = () => {
                   />
                 </div>
               </article>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
